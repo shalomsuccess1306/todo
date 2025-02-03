@@ -1,5 +1,3 @@
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
 
 export const environment = {
     production: true,
@@ -13,6 +11,3 @@ export const environment = {
         measurementId: "G-0WNFJX31CC"
       }
   };
-    // Initialize Firebase
-   export const app = initializeApp(environment.firebaseConfig);
-   export  const analytics = getAnalytics(app);

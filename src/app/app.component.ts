@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import {environment} from '../environments/environment'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-// import { ToDo, TodoServiceService } from './todo-service.service';
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,7 @@ export class AppComponent implements OnInit {
   title = 'todoApp';
   public signUpForm : FormGroup = new FormGroup({});
   newTask: string = '';
-
+ auth:any;
 
   constructor(private fb : FormBuilder){
     this.signUpForm = this.fb.group({
@@ -24,11 +25,19 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(){
-    
+       // Initialize Firebase
+    const app = initializeApp(environment.firebaseConfig);
+     const analytics = getAnalytics(app);
   }
   
   submit(){
-  console.log("form", this.signUpForm);
+    this.auth = getAuth();
+    console.log("form", this.signUpForm);
+    let email = this.signUpForm.controls['email'].value;
+    let password = this.signUpForm.controls['password'].value
+    createUserWithEmailAndPassword(this.auth,email,password).then((res)=>{
+      console.log("user credentials",res.user)
+    })
   
   }
 }
