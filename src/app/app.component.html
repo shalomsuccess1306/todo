@@ -1,1 +1,18 @@
-<h1>{{title}}</h1>
+
+<div class="sign-up">
+  <h2>Sign Up</h2>
+  <form [formGroup] ="signUpForm">
+    <div class="input">
+      <label for="email">Email</label> <br /> 
+      <input name="email" formControlName="email"  placeholder="enter emaill" type="text"> <br />
+    </div>
+    <div class="input">
+      <label for="password">Password</label> <br />
+      <input name ="password" formControlName="password"  placeholder="enter password" type="text"> <br />
+      <div class="submit">
+        <button (click)="submit()">Submit</button>
+      </div>
+    </div>
+
+  </form>
+</div>

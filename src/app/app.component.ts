@@ -1,21 +1,34 @@
-import { Component } from '@angular/core';
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+import { Component, OnInit } from '@angular/core';
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import {environment} from '../environments/environment'
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+// import { ToDo, TodoServiceService } from './todo-service.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'todoApp';
-  
-  constructor(){
+  public signUpForm : FormGroup = new FormGroup({});
+  newTask: string = '';
 
-  // Initialize Firebase
-  const app = initializeApp(environment.firebaseConfig);
-  const analytics = getAnalytics(app);
+
+  constructor(private fb : FormBuilder){
+    this.signUpForm = this.fb.group({
+      email:[null, [Validators.email, Validators.required]],
+      password:[null, [Validators.required, Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=!]).{8,}$/)]]
+    })
+
   }
 
+  ngOnInit(){
+    
+  }
+  
+  submit(){
+  console.log("form", this.signUpForm);
+  
+  }
 }
