@@ -1,0 +1,13 @@
+<nav class="navbar">
+    <div class="logo">MyWebsite</div>
+    <ul>
+        <li><a class="active">Home</a></li>
+        <li><a >About</a></li>
+        <li><a >Services</a></li>
+        <li><a >Contact</a></li>
+    </ul>
+   <div>
+     <button class="btn2" *ngIf="isLogin"(click)="signOut()" >Log Out</button>
+     <button class="btn" *ngIf="!isLogin" (click)="login()" >Log In</button>
+    </div>
+</nav>

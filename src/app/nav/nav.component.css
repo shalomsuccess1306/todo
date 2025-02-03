@@ -1,0 +1,64 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 15px 30px;
+}
+
+.navbar .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar ul li {
+    display: inline;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    font-size: 1rem;
+    color:#2575fc;
+    cursor: pointer;
+    position: relative;
+}
+.navbar ul li a::after{
+    content: '';
+    width: 0px;
+    height: 3px;
+    background-color: #2575fc;
+    position: absolute;
+    left: 0px;
+    bottom: -6px;
+    transition: width 0.5s;
+}
+.navbar ul li a:hover::after {
+    width: 100%; 
+  }
+
+
+.btn {
+    background: #2575fc;
+    color: white;
+    padding: 12px 25px;
+    font-size: 1rem;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    border: none;
+}
+.btn2 {
+    color: #2575fc;
+    padding: 12px 25px;
+    font-size: 1rem;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    border: none;
+}

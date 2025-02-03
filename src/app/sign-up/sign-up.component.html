@@ -1,0 +1,19 @@
+<app-nav></app-nav>
+<div class="sign-up">
+
+    <h2>Log In</h2>
+    <form [formGroup] ="signUpForm">
+      <div class="input">
+        <label for="email">Email</label> <br /> 
+        <input name="email" formControlName="email"  placeholder="enter emaill" type="text"> <br />
+      </div>
+      <div class="input">
+        <label for="password">Password</label> <br />
+        <input name ="password" formControlName="password"  placeholder="enter password" type="text"> <br />
+        <div class="submit">
+          <button (click)="submit()">Submit</button>
+        </div>
+      </div>
+  
+    </form>
+  </div>
