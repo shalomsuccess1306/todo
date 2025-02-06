@@ -19,7 +19,9 @@ export class AuthService {
   constructor() { }
 
   async login(email:string, password:string){
-    await signInWithEmailAndPassword(this.auth, email, password)
+    await signInWithEmailAndPassword(this.auth, email, password).then((res)=>{
+      console.log(res)
+    })
   }
 
   async signUp(email:string, password:string){

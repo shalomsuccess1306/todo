@@ -23,10 +23,10 @@ export class NavComponent {
     });
   }
   login(){
-    this.router.navigateByUrl("sign-up")
+    this.router.navigateByUrl("login")
   }
   signOut(){
-    this.router.navigateByUrl("sign-up")
+    this.router.navigateByUrl("login")
     this.auth.signOut();
   }
 }
